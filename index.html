@@ -6,10 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-title" content="HOLLYS">
     <meta name="robots" content="index,nofollow">
-    <meta name="description" content="할리스에서 할링하세요">
-    <!-- OG -->
-    <!-- TW -->
-
+    <meta name="description" content="할리스에서 따뜻한 하루 보내세요">
+    <meta property="og:title" content="할리스">
+    <meta property="og:url" content="https://bubble2604.github.io/report07/">
+    <meta property="og:image" content="./images/og-img.jpg">
+    <meta property="og:description" content="할리스에서 따뜻한 하루 보내세요">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="할리스">
+    <meta name="twitter:url" content="https://bubble2604.github.io/report07/">
+    <meta name="twitter:image" content="./images/og-img.jpg">
+    <meta name="twitter:description" content="할리스에서 따뜻한 하루 보내세요">
 
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./css/reset.css">
@@ -41,7 +47,8 @@
             align-items:center;
             align-content:space-between;
         }
-        .header .container::before{
+        
+        /* .header .container::before{
             content:'창업설명회';
             display:block;
             border-radius:10px;
@@ -49,7 +56,9 @@
             background-color:#666;
             color:#fff;
             cursor: pointer;
-        }
+        } */
+
+
         .quick-menu01{
             display:none;
         }
@@ -109,6 +118,19 @@
             font-size:12px;
         }
 
+        .m-btn1{
+            display:block;
+            border-radius:10px;
+            padding:0.5em;
+            background-color:#666;
+            cursor: pointer;
+        }
+        .m-btn1 input{
+            background-color: #666;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+        }
         /* 팝업창 */
         .floating{
             display:none;
@@ -117,45 +139,32 @@
             left:50%;
             transform:translate(600px,0);
         }
-        .popup{
-            display: none; /*숨기기*/
+        .pop-up{
+            display: none;
             position: fixed;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 999998;
         }
-
-        .popmenu{
+        .pop-up .container{
+            width: 80%;
             position: absolute;
             left: 50%;
-            top: 50%;
+            top: 30%;
             transform: translate(-50%,-50%);
-            width: 300px;
-            height: 200px;
-            text-align: center;
-            background: #fff;
-            z-index: 99999999; 
         }
-
-        .popmenu p{
-            margin-top: 80px;
+        .pop-up .container video{
+            width: 100%;
         }
-
-        .exit{
+        #btn2{
+            font-size: 30px;
             position: absolute;
-            left: 50%;
-            bottom: 10px;
-            transform: translate(-50%,0);
-            width: 60px;
-            height: 30px;
-            text-align: center;
-            line-height: 30px;
-            background: #007AAE;
-            cursor: pointer;
+            right:-19px;
+            top: 5px;
+            color: #333;
         }
-
-        
         /* MAIN BANNER Style */
         .bx-wrapper{
             margin:0;
@@ -395,6 +404,9 @@
             .quick-menu02{
                 display:flex;
             }
+            .m-btn1{
+                display: none;
+            }
             .btn-nav{
                 display:none;
             }
@@ -431,46 +443,16 @@
             }
 
             /* 팝업창 */
-
             .floating{display:block;}
 
-            .popup{
-                display: none; /*숨기기*/
-                position: fixed;
-                width: 100%;
-                height: 100%;
-                z-index: 99999999; 
+            .pop-up{
+                top: 30%;
             }
-
-            .popmenu{
-                position: absolute;
-                right: 0;
-                top: 300px;
-                transform: translate(-100%,-100%);
-                width: 300px;
-                height: 200px;
-                text-align: center;
-                background: #fff;
-                
+            #btn2{
+                font-size: 50px;
+                right: -35px;
+                top: 0;
             }
-
-            /* .popmenu p{
-                margin-top: 80px;
-            } */
-
-            /* .exit{
-                position: absolute;
-                left: 50%;
-                bottom: 10px;
-                transform: translate(-50%,0);
-                width: 60px;
-                height: 30px;
-                text-align: center;
-                line-height: 30px;
-                background: #007AAE;
-                cursor: pointer;
-            } */
-
             /* Main Style */
             .mo{display:none;}
             .desk{display:block;}
@@ -532,6 +514,13 @@
     </style>
 </head>
 <body>
+    <div class="pop-up" id="pop-up">
+        <div class="container">
+            <video class="video" src="./images/work.mp4" autoplay controls loop></video>
+            <i id="btn2" class="fa fa-times-circle-o" aria-hidden="true"></i>
+            <div class="box-back"></div>
+        </div>
+    </div>
     <div class="skip-menu">
         <a href="#main">본문 바로가기</a>
     </div>
@@ -544,6 +533,11 @@
                     <li><a href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i> 아카데미</a></li>
                     <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i> 기업특판</a></li>
                 </ul>
+                <!-- 모바일용버튼 -->
+                <div id="m-btn1" class="m-btn1">
+                    <a href="#"><input type="button" value="가맹문의"></a>
+                </div>
+
                 <h1>
                     <a href="./index.html">
                         <span class="logo"><img src="./images/logo.gif" alt="홈으로 이동"></span>
@@ -617,18 +611,9 @@
                     </ul>
                 </nav>
                 <div class="floating">
-                    <a class="contents" href="#"><img src="./images/floating.png" alt="창업박람회 바로가기"></a>
-                    <!--pop up-->
-                    <div class="popup">
-                        <div class="popmenu">
-                            <video src="./images/work.mp4" autoplay loop></video>
-                            <div class="exit">닫기</div>
-                        </div>
-                    </div>
-                    
-                    <!--contents-->
-                    <!-- <div id="contents">여기를 누르면 전체 팝업이 뜹니다.</div> -->
+                    <a id="btn1" href="#"><img src="./images/floating.png" alt="창업설명회 바로가기"></a>
                 </div>
+                
             </div>
         </header>
         <section class="main-banner">
@@ -717,7 +702,7 @@
                                 <p>가맹문의</p>
                             </div>
                             <div class="img-box">
-                                <a href="#"><img src="./images/img-fran.png" alt="플랜차이즈 바로가기"></a>
+                                <a href="#"><img src="./images/img-fran.png" alt="프랜차이즈 바로가기"></a>
                             </div>
                         </li> 
                         <li>
@@ -877,15 +862,28 @@
             });
 
 
-            //pop-up
-            $(document).ready(function(){
-                $(".contents").click(function(){
-                    $(".popup").fadeIn();
-                });
-                $(".popup").click(function(){
-                    $(".popup").fadeOut();
-                });
-            });
+            //pop-up-모바일
+            $('#btn1').on({
+                'click':function(){
+                    $('#pop-up').fadeIn();
+                }
+            })
+            $('#btn2').on({
+                'click':function(){
+                    $('#pop-up').fadeOut();
+                }
+            })
+            // pop-up-데스크탑
+            $('#m-btn1').on({
+                'click':function(){
+                    $('#pop-up').fadeIn();
+                }
+            })
+            $('#btn2').on({
+                'click':function(){
+                    $('#pop-up').fadeOut();
+                }
+            })
 
         })
     </script>
